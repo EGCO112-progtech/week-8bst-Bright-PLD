@@ -103,15 +103,17 @@ void postOrder( TreeNodePtr treePtr ){
    }
 }
 
-void TreeOrder( TreeNodePtr treePtr )
+void TreeOrder( TreeNodePtr treePtr , int n)
 { 
    
    if ( treePtr != NULL ) {        
         
-      TreeOrder( treePtr->rightPtr ); 
-      printf("%3d\n",treePtr->data ) ;
-      
-      TreeOrder( treePtr->leftPtr ); 
+      TreeOrder( treePtr->rightPtr ,n+1); 
+      for(int i=0;i<n;i++){
+         printf("   ");
+      }
+      printf("%3d\n",treePtr->data );
+      TreeOrder( treePtr->leftPtr ,n+1); 
    }  
 
 } 
